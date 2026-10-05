@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:help_instruction_app/models/meals_model.dart';
+import 'package:help_instruction_app/providers/favorites_provider.dart';
 
 
-class MealDetailsScreen extends StatelessWidget {
+class MealDetailsScreen extends ConsumerWidget {
   const MealDetailsScreen({required this.mealsDetails, super.key});
   final MealsModel mealsDetails;
 
-
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context, WidgetRef ref) { 
+    final List<MealsModel> favoritesMeals = ref.watch(favoritesMealsProvider);
+
+    bool isFavorite = favoritesMeals.contains(mealsDetails);
+
     return Scaffold(
       appBar: AppBar( 
         title: Text(
@@ -18,6 +23,28 @@ class MealDetailsScreen extends StatelessWidget {
             fontSize: 20,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: (){
+              // Handle favorite button press
+              ref.read(favoritesMealsProvider.notifier).toggleMealFavouriteStatues(mealsDetails);
+
+
+              // Show a snackbar to indicate the change
+              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(isFavorite ? 'Removed from favorites' : 'Added to favorites'),
+                  duration: Duration(seconds: 2),
+                  //behavior: SnackBarBehavior.floating,
+                  backgroundColor: isFavorite ? Colors.red[800]: Colors.green[800], 
+                ),
+              );
+            },
+
+            icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border, color: isFavorite ? Colors.redAccent : Colors.white,),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

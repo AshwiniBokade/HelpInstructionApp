@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:help_instruction_app/screens/category_screen.dart'; 
+import 'package:help_instruction_app/screens/category_screen.dart';
+import 'package:help_instruction_app/screens/home_screen.dart'; 
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Meal Receipe App',
       debugShowCheckedModeBanner: false,
-      home: CategoryScreen(),
+      home: HomeScreen(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 180, 11, 57),),
         textTheme: ThemeData.light().textTheme.apply(fontFamily: GoogleFonts.lato().fontFamily,), 
