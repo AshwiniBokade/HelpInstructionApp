@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:help_instruction_app/screens/animations_screen.dart';
 import 'package:help_instruction_app/screens/category_screen.dart';
 import 'package:help_instruction_app/screens/favorites_screen.dart';
 
@@ -14,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _screens = [
     CategoryScreen(),
     FavoritesScreen(),
+    AnimationsScreen(),
   ];
   int _selectedIndex = 0;
   @override
@@ -32,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.category_rounded), label: 'Categories'),
           BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorites'), 
+          BottomNavigationBarItem(icon: Icon(Icons.animation), label: 'Animations'),
         ],
       ),
     );
