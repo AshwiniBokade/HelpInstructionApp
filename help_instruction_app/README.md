@@ -22,5 +22,3 @@ samples, guidance on mobile development, and a full API reference.
 ![alt text](<screenshots/Screenshot 2026-10-01 at 9.09.34 PM.png>)
 ![alt text](<screenshots/Screenshot 2026-10-01 at 9.09.56 PM.png>)
 ![alt text](<screenshots/Screenshot 2026-10-01 at 9.11.40 PM.png>)
-[🎥 Watch Animation Demo](screenshots/Screen Recording 2026-10-05 at 10.19.25 PM.mov)
-<video controls src="screenshots/Screen Recording 2026-10-05 at 10.19.25 PM.mov" title="Animations"></video>
